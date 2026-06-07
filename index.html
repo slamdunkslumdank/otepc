@@ -29,7 +29,7 @@ body {
 
 /* HEADER */
 .header {
-  padding: 28px 24px 24px;
+  padding: 24px 24px 20px;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--border);
@@ -43,66 +43,65 @@ body {
   background: radial-gradient(ellipse 80% 120% at 50% -20%, rgba(255,69,0,0.15), transparent);
 }
 .logo-img {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0 auto 14px;
-  display: block;
-  position: relative;
-  z-index: 1;
+  width: 120px; height: 120px;
+  border-radius: 50%; object-fit: cover;
+  margin: 0 auto 12px; display: block;
+  position: relative; z-index: 1;
   box-shadow: 0 0 0 3px rgba(255,69,0,0.4), 0 8px 32px rgba(255,69,0,0.25);
 }
 .header-title {
-  font-size: 22px;
-  font-weight: 900;
-  letter-spacing: 0.5px;
-  position: relative;
-  z-index: 1;
+  font-size: 24px; font-weight: 900;
+  letter-spacing: 0.5px; position: relative; z-index: 1;
 }
 .header-title span { color: var(--orange); }
 .header-sub {
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 4px;
-  position: relative;
-  z-index: 1;
-  letter-spacing: 1px;
+  font-size: 12px; color: var(--muted);
+  margin-top: 4px; position: relative; z-index: 1;
 }
 
 /* MAIN */
 .main {
-  flex:1;
-  padding: 28px 20px 48px;
-  max-width: 520px;
-  margin: 0 auto;
-  width: 100%;
+  flex:1; padding: 24px 20px 48px;
+  max-width: 520px; margin: 0 auto; width: 100%;
 }
 
 /* GREETING */
-.greeting { margin-bottom:28px; text-align:center; }
+.greeting { margin-bottom:24px; text-align:center; }
 .greeting-emoji {
-  font-size:44px; margin-bottom:10px;
+  font-size:44px; margin-bottom:8px;
   animation: wave 2.5s infinite;
   display:inline-block; transform-origin:70% 70%;
 }
 @keyframes wave {
   0%,60%,100%{transform:rotate(0)} 10%,30%{transform:rotate(18deg)} 20%{transform:rotate(-6deg)}
 }
-.greeting-title { font-size:22px; font-weight:900; margin-bottom:6px; }
+.greeting-title { font-size:22px; font-weight:900; margin-bottom:4px; }
 .greeting-title span { color:var(--orange); }
 .greeting-sub { font-size:13px; color:var(--muted); line-height:1.7; }
 
-/* FORM */
-.form-block { margin-bottom:22px; }
-.form-label {
-  font-size:11px; font-weight:700; color:var(--muted);
-  letter-spacing:1.5px; margin-bottom:10px; text-transform:uppercase;
-  display:flex; align-items:center; gap:6px;
+/* SECTION */
+.section-divider {
+  display: flex; align-items: center; gap: 10px;
+  margin: 24px 0 16px;
 }
-.req { color:var(--orange); }
+.section-divider-line { flex:1; height:1px; background:var(--border); }
+.section-divider-text {
+  font-size: 11px; font-weight: 800;
+  color: var(--orange); letter-spacing: 2px;
+  white-space: nowrap;
+}
 
-input[type=text], input[type=tel], textarea {
+/* FORM */
+.form-block { margin-bottom:20px; }
+.form-label {
+  font-size: 15px; font-weight: 800;
+  color: var(--white); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 6px;
+}
+.form-label .req { color:var(--orange); font-size:18px; line-height:1; }
+.form-label .opt { color:var(--muted); font-size:11px; font-weight:400; }
+
+input[type=text], input[type=tel] {
   width:100%; background:var(--dark3);
   border:2px solid var(--border);
   color:var(--white); padding:15px 16px;
@@ -110,22 +109,22 @@ input[type=text], input[type=tel], textarea {
   font-family:'Noto Sans Thai',sans-serif; font-weight:600;
   outline:none; transition:all 0.2s; -webkit-appearance:none;
 }
-input:focus, textarea:focus {
+input:focus {
   border-color:var(--orange);
   background:rgba(255,69,0,0.05);
   box-shadow:0 0 0 4px rgba(255,69,0,0.1);
 }
-input::placeholder, textarea::placeholder { color:rgba(255,255,255,0.2); }
-textarea { resize:none; min-height:90px; font-size:15px; }
+input::placeholder { color:rgba(255,255,255,0.2); font-weight:400; font-style:italic; }
+input.error { border-color:#FF4444 !important; box-shadow:0 0 0 4px rgba(255,68,68,0.15) !important; }
 
 /* CHIPS */
 .chips { display:flex; flex-wrap:wrap; gap:8px; }
 .chip {
-  padding:10px 16px; border-radius:100px;
+  padding:11px 16px; border-radius:100px;
   border:2px solid var(--border);
-  font-size:13px; font-family:'Noto Sans Thai',sans-serif; font-weight:700;
+  font-size:14px; font-family:'Noto Sans Thai',sans-serif; font-weight:700;
   cursor:pointer; transition:all 0.15s;
-  background:var(--dark3); color:rgba(255,255,255,0.7);
+  background:var(--dark3); color:rgba(255,255,255,0.75);
   user-select:none; -webkit-user-select:none;
 }
 .chip:active { transform:scale(0.93); }
@@ -136,46 +135,76 @@ textarea { resize:none; min-height:90px; font-size:15px; }
 .photo-btn {
   width:100%; background:var(--dark3);
   border:2px dashed rgba(255,69,0,0.3);
-  border-radius:16px; padding:30px 20px;
-  text-align:center; cursor:pointer;
-  transition:all 0.2s;
+  border-radius:16px; padding:28px 20px;
+  text-align:center; cursor:pointer; transition:all 0.2s;
   display:flex; flex-direction:column; align-items:center; gap:8px;
 }
 .photo-btn:active { background:rgba(255,69,0,0.08); border-color:var(--orange); }
 .photo-btn.has-photo { padding:0; border-style:solid; border-color:var(--orange); overflow:hidden; }
-.photo-btn.has-photo img { width:100%; border-radius:14px; display:block; max-height:240px; object-fit:cover; }
-.photo-icon { font-size:34px; }
-.photo-title { font-size:15px; font-weight:700; color:var(--white); }
+.photo-btn.has-photo img { width:100%; border-radius:14px; display:block; max-height:220px; object-fit:cover; }
+.photo-icon { font-size:32px; }
+.photo-title { font-size:15px; font-weight:700; }
 .photo-hint { font-size:12px; color:var(--muted); }
 input[type=file] { display:none; }
 .photo-remove {
-  position:absolute; top:12px; right:12px;
-  background:rgba(0,0,0,0.7); backdrop-filter:blur(4px);
-  color:#fff; border:none; border-radius:100px;
-  padding:6px 14px; font-size:12px;
+  position:absolute; top:10px; right:10px;
+  background:rgba(0,0,0,0.7); color:#fff; border:none;
+  border-radius:100px; padding:5px 12px; font-size:12px;
   font-family:'Noto Sans Thai',sans-serif; font-weight:700;
   cursor:pointer; z-index:2;
 }
 
-/* DIVIDER */
-.divider { height:1px; background:var(--border); margin:24px 0; }
+/* DELIVERY */
+.delivery-options { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.delivery-card {
+  background:var(--dark3); border:2px solid var(--border);
+  border-radius:14px; padding:16px 12px; text-align:center;
+  cursor:pointer; transition:all 0.2s; user-select:none;
+}
+.delivery-card:active { transform:scale(0.96); }
+.delivery-card.selected { border-color:var(--orange); background:var(--orange2); }
+.delivery-icon { font-size:28px; margin-bottom:6px; }
+.delivery-title { font-size:14px; font-weight:800; color:var(--white); margin-bottom:3px; }
+.delivery-desc { font-size:11px; color:var(--muted); line-height:1.4; }
+.delivery-card.selected .delivery-title { color:var(--orange); }
+
+/* LOCATION BOX */
+.location-box {
+  display:none;
+  background:var(--dark3); border:1px solid var(--border);
+  border-radius:14px; padding:16px; margin-top:12px;
+}
+.location-box.show { display:block; }
+.location-status { font-size:13px; color:var(--muted); margin-bottom:10px; }
+.location-status.got { color:#00cc66; }
+.location-status.err { color:#FF4444; }
+.btn-get-location {
+  width:100%; background:var(--orange); color:#fff; border:none;
+  padding:13px; border-radius:10px; font-size:14px; font-weight:800;
+  font-family:'Noto Sans Thai',sans-serif; cursor:pointer;
+}
+.location-preview {
+  font-size:12px; color:var(--muted); margin-top:8px;
+  font-family:monospace; line-height:1.5;
+}
 
 /* SUBMIT */
 .btn-submit {
   width:100%; background:var(--orange); color:#fff; border:none;
-  padding:18px; border-radius:16px; font-size:17px; font-weight:800;
+  padding:20px; border-radius:16px; font-size:18px; font-weight:900;
   font-family:'Noto Sans Thai',sans-serif; cursor:pointer; transition:all 0.2s;
   box-shadow:0 8px 28px rgba(255,69,0,0.35);
-  position:relative; overflow:hidden;
+  position:relative; overflow:hidden; margin-top:8px;
 }
 .btn-submit:active { transform:scale(0.98); }
-.btn-submit:disabled { opacity:0.55; }
+.btn-submit:disabled { opacity:0.5; }
 .btn-submit .shine {
   position:absolute; top:0; left:-100%; width:60%; height:100%;
   background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);
   animation:shine 2.5s infinite 1s;
 }
 @keyframes shine { 0%{left:-100%} 100%{left:200%} }
+.submit-note { text-align:center; font-size:11px; color:var(--muted); margin-top:8px; }
 
 /* LOADING */
 .loading-overlay {
@@ -215,11 +244,6 @@ input[type=file] { display:none; }
 .ticket-box {
   background:var(--dark3); border:2px solid var(--orange);
   border-radius:16px; padding:20px 40px; margin-bottom:28px;
-  position:relative; overflow:hidden;
-}
-.ticket-box::before {
-  content:''; position:absolute; inset:0;
-  background:radial-gradient(ellipse at center,rgba(255,69,0,0.08),transparent);
 }
 .ticket-label { font-size:10px; color:var(--orange); font-weight:700; letter-spacing:2px; margin-bottom:6px; }
 .ticket-no { font-size:34px; font-weight:900; color:var(--orange); letter-spacing:3px; }
@@ -233,38 +257,30 @@ input[type=file] { display:none; }
 /* TOAST */
 .toast {
   position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(100px);
-  background:#FF4444; color:#fff; padding:12px 24px; border-radius:100px;
+  background:#1E1E1E; border:1px solid var(--orange); color:var(--white);
+  padding:12px 24px; border-radius:100px;
   font-size:14px; font-weight:700; z-index:200;
   transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
-  white-space:nowrap;
+  white-space:nowrap; max-width:90vw;
 }
 .toast.show { transform:translateX(-50%) translateY(0); }
+.toast.err { background:#FF4444; border-color:#FF4444; }
 
-/* FOOTER WATERMARK */
+/* FOOTER */
 .footer {
-  padding:18px 16px;
-  text-align:center;
-  border-top:1px solid var(--border);
-  flex-shrink:0;
+  padding:16px; text-align:center;
+  border-top:1px solid var(--border); flex-shrink:0;
 }
-.footer-dev {
-  font-size:11px;
-  color:rgba(255,255,255,0.1);
-  letter-spacing:1px;
-  font-style:italic;
-}
+.footer-dev { font-size:11px; color:rgba(255,255,255,0.1); font-style:italic; }
 .footer-dev span { color:rgba(255,69,0,0.35); font-weight:700; }
 </style>
 </head>
 <body>
 
-<!-- LOADING -->
 <div class="loading-overlay" id="loading">
   <div class="spinner"></div>
   <div class="loading-text">กำลังส่งข้อมูล...</div>
 </div>
-
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <!-- HEADER -->
@@ -274,29 +290,42 @@ input[type=file] { display:none; }
   <div class="header-sub">แจ้งซ่อม · บริการซ่อมคอมพิวเตอร์</div>
 </div>
 
-<!-- FORM PAGE -->
+<!-- FORM -->
 <div class="main" id="form-page">
-
   <div class="greeting">
     <div class="greeting-emoji">👋</div>
     <div class="greeting-title">สวัสดีครับ<span>!</span></div>
-    <div class="greeting-sub">กรอกข้อมูลสั้นๆ ไม่กี่วินาที<br>ช่างจะดูแลคุณทันที 🔥</div>
+    <div class="greeting-sub">กรอกข้อมูลสั้นๆ ไม่กี่วินาที<br>ช่างจะดูแลทันที 🔥</div>
+  </div>
+
+  <!-- ข้อมูลส่วนตัว -->
+  <div class="section-divider">
+    <div class="section-divider-line"></div>
+    <div class="section-divider-text">ข้อมูลของคุณ</div>
+    <div class="section-divider-line"></div>
   </div>
 
   <div class="form-block">
-    <div class="form-label">👤 ชื่อของคุณ <span class="req">*</span></div>
-    <input type="text" id="inp-name" placeholder="กรอกชื่อได้เลยครับ" autocomplete="given-name">
+    <div class="form-label">👤 ชื่อ <span class="req">*</span></div>
+    <input type="text" id="inp-name" placeholder="ชื่อเล่น" autocomplete="given-name">
   </div>
 
   <div class="form-block">
     <div class="form-label">📞 เบอร์โทรศัพท์ <span class="req">*</span></div>
-    <input type="tel" id="inp-tel" placeholder="0xx-xxx-xxxx" autocomplete="tel" inputmode="tel">
+    <input type="tel" id="inp-tel" placeholder="064-946-9426"
+      autocomplete="tel" inputmode="numeric" maxlength="12"
+      oninput="formatTel(this)">
   </div>
 
-  <div class="divider"></div>
+  <!-- อุปกรณ์และปัญหา -->
+  <div class="section-divider">
+    <div class="section-divider-line"></div>
+    <div class="section-divider-text">อุปกรณ์และปัญหา</div>
+    <div class="section-divider-line"></div>
+  </div>
 
   <div class="form-block">
-    <div class="form-label">💻 ประเภทอุปกรณ์</div>
+    <div class="form-label">💻 ประเภทอุปกรณ์ <span class="opt">(ไม่บังคับ)</span></div>
     <div class="chips" id="device-chips">
       <div class="chip" onclick="selectDevice(this)">💻 Notebook</div>
       <div class="chip" onclick="selectDevice(this)">🖥️ PC Desktop</div>
@@ -307,30 +336,35 @@ input[type=file] { display:none; }
   </div>
 
   <div class="form-block">
-    <div class="form-label">⚡ อาการที่พบ <span style="color:var(--muted);font-size:10px;font-weight:400;text-transform:none">(เลือกได้หลายอย่าง)</span></div>
-    <div class="chips" id="symptom-chips">
-      <div class="chip" onclick="toggleSymptom(this)">🐌 เครื่องช้า</div>
-      <div class="chip" onclick="toggleSymptom(this)">⚡ เปิดไม่ติด</div>
-      <div class="chip" onclick="toggleSymptom(this)">🖥️ จอมีปัญหา</div>
-      <div class="chip" onclick="toggleSymptom(this)">🦠 ไวรัส/แฮง</div>
-      <div class="chip" onclick="toggleSymptom(this)">🔥 ร้อนผิดปกติ</div>
-      <div class="chip" onclick="toggleSymptom(this)">💧 น้ำเข้า</div>
-      <div class="chip" onclick="toggleSymptom(this)">🔊 เสียงดัง</div>
-      <div class="chip" onclick="toggleSymptom(this)">🔋 แบตหมดเร็ว</div>
-      <div class="chip" onclick="toggleSymptom(this)">⬆️ อัปเกรด</div>
-      <div class="chip" onclick="toggleSymptom(this)">🔍 ตรวจเช็คทั่วไป</div>
+    <div class="form-label">⚡ ประเภทงาน <span class="opt">(เลือกได้หลายอย่าง)</span></div>
+    <div class="chips" id="job-chips">
+      <div class="chip" onclick="toggleJob(this)">🔍 ตรวจเช็คอาการทั่วไป</div>
+      <div class="chip" onclick="toggleJob(this)">💿 ลงโปรแกรม</div>
+      <div class="chip" onclick="toggleJob(this)">🪟 ลง Windows</div>
+      <div class="chip" onclick="toggleJob(this)">⬆️ อัปเกรด</div>
+      <div class="chip" onclick="toggleJob(this)">🌐 Remote Support Online</div>
+      <div class="chip" onclick="toggleJob(this)">🔧 แก้ปัญหาทั่วไป</div>
+      <div class="chip" onclick="toggleJob(this)">🐌 เครื่องช้า</div>
+      <div class="chip" onclick="toggleJob(this)">⚡ เปิดไม่ติด</div>
+      <div class="chip" onclick="toggleJob(this)">🔥 ร้อนผิดปกติ</div>
+      <div class="chip" onclick="toggleJob(this)">🧹 ทำความสะอาด</div>
     </div>
   </div>
 
   <div class="form-block">
-    <div class="form-label">📝 รายละเอียดเพิ่มเติม <span style="color:var(--muted);font-size:10px;font-weight:400;text-transform:none">(ถ้ามี)</span></div>
-    <textarea id="inp-note" placeholder="บอกช่างเพิ่มเติมได้เลยครับ เช่น เปิดแล้วจอดำ เสียงบีบ..."></textarea>
+    <div class="form-label">📝 หมายเหตุ <span class="opt">(ถ้ามี)</span></div>
+    <input type="text" id="inp-note" placeholder="บอกช่างเพิ่มเติมได้เลยครับ...">
   </div>
 
-  <div class="divider"></div>
+  <!-- ถ่ายรูป -->
+  <div class="section-divider">
+    <div class="section-divider-line"></div>
+    <div class="section-divider-text">รูปภาพ</div>
+    <div class="section-divider-line"></div>
+  </div>
 
   <div class="form-block">
-    <div class="form-label">📷 ถ่ายรูปอุปกรณ์ <span style="color:var(--muted);font-size:10px;font-weight:400;text-transform:none">(ไม่บังคับ)</span></div>
+    <div class="form-label">📷 ถ่ายรูปอุปกรณ์ <span class="opt">(ไม่บังคับ)</span></div>
     <div class="photo-wrap">
       <div class="photo-btn" id="photo-btn" onclick="triggerCamera()">
         <div class="photo-icon">📸</div>
@@ -340,8 +374,41 @@ input[type=file] { display:none; }
       <input type="file" id="inp-camera" accept="image/*" capture="environment" onchange="handlePhoto(this)">
       <input type="file" id="inp-gallery" accept="image/*" onchange="handlePhoto(this)">
     </div>
-    <div id="gallery-alt" style="display:none;margin-top:10px;text-align:center">
-      <button onclick="document.getElementById('inp-gallery').click()" style="background:none;border:none;color:var(--muted);font-size:13px;font-family:'Noto Sans Thai',sans-serif;cursor:pointer;text-decoration:underline">หรือเลือกจากอัลบั้ม</button>
+    <div id="gallery-alt" style="display:none;margin-top:8px;text-align:center">
+      <button onclick="document.getElementById('inp-gallery').click()"
+        style="background:none;border:none;color:var(--muted);font-size:13px;font-family:'Noto Sans Thai',sans-serif;cursor:pointer;text-decoration:underline">
+        หรือเลือกจากอัลบั้ม
+      </button>
+    </div>
+  </div>
+
+  <!-- รับ/ส่งเครื่อง -->
+  <div class="section-divider">
+    <div class="section-divider-line"></div>
+    <div class="section-divider-text">วิธีรับ/ส่งเครื่อง</div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="form-block">
+    <div class="form-label">🚗 เลือกวิธี <span class="req">*</span></div>
+    <div class="delivery-options">
+      <div class="delivery-card" id="del-self" onclick="selectDelivery('self')">
+        <div class="delivery-icon">🏃</div>
+        <div class="delivery-title">ส่งเครื่องเอง</div>
+        <div class="delivery-desc">มาส่งที่ร้านได้เลย<br>จะแสดงแผนที่ให้</div>
+      </div>
+      <div class="delivery-card" id="del-pickup" onclick="selectDelivery('pickup')">
+        <div class="delivery-icon">🚗</div>
+        <div class="delivery-title">ให้ร้านไปรับ</div>
+        <div class="delivery-desc">ช่างจะไปรับถึงที่<br>กรุณาแชร์ตำแหน่ง</div>
+      </div>
+    </div>
+
+    <!-- Location box -->
+    <div class="location-box" id="location-box">
+      <div class="location-status" id="loc-status">กดปุ่มด้านล่างเพื่อแชร์ตำแหน่งของคุณ</div>
+      <button class="btn-get-location" onclick="getLocation()">📍 แชร์ตำแหน่งปัจจุบัน</button>
+      <div class="location-preview" id="loc-preview"></div>
     </div>
   </div>
 
@@ -349,19 +416,15 @@ input[type=file] { display:none; }
     <div class="shine"></div>
     ส่งข้อมูลให้ช่าง 🚀
   </button>
-  <div style="text-align:center;margin-top:12px;font-size:11px;color:var(--muted)">
-    ข้อมูลจะถูกบันทึกเข้าระบบร้านทันที
-  </div>
-
+  <div class="submit-note">ข้อมูลจะถูกบันทึกเข้าระบบร้านทันที</div>
 </div>
 
-<!-- SUCCESS PAGE -->
+<!-- SUCCESS -->
 <div class="success" id="success-page">
   <div class="success-anim">🎉</div>
   <div class="success-title">รับเคสแล้ว<span>!</span></div>
   <div class="success-desc">
-    ช่างได้รับข้อมูลของคุณแล้วครับ<br>
-    จะติดต่อกลับเร็วๆ นี้<br>
+    ช่างได้รับข้อมูลแล้วครับ<br>จะติดต่อกลับเร็วๆ นี้<br>
     <strong style="color:rgba(255,255,255,0.7)">เก็บหมายเลขเคสนี้ไว้นะครับ 👇</strong>
   </div>
   <div class="ticket-box">
@@ -377,28 +440,50 @@ input[type=file] { display:none; }
 
 <script>
 const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbwo8Lz1qmyGjgRyNgyDnB7XtjBoet2op7MtQ9vAwtFU2rNZpGp5lLCP4jt_fyWeP8h2kQ/exec';
+const SHOP_LAT = 13.8638;
+const SHOP_LNG = 100.5739;
+const SHOP_MAPS_URL = 'https://maps.app.goo.gl/vXibV5jPMecY4k5a7';
 
 let photoData = '';
 let deviceSelected = '';
-let symptomsSelected = [];
-let jobCounter = parseInt(localStorage.getItem('otepc_final_counter') || '200');
+let jobsSelected = [];
+let deliveryMethod = '';
+let userLat = null;
+let userLng = null;
+let jobCounter = parseInt(localStorage.getItem('otepc_v4_counter') || '200');
 
+// ============================================================
+// PHONE FORMAT
+// ============================================================
+function formatTel(input) {
+  let val = input.value.replace(/\D/g, '').slice(0, 10);
+  if (val.length > 6) val = val.slice(0,3) + '-' + val.slice(3,6) + '-' + val.slice(6);
+  else if (val.length > 3) val = val.slice(0,3) + '-' + val.slice(3);
+  input.value = val;
+}
+
+// ============================================================
+// CHIPS
+// ============================================================
 function selectDevice(el) {
   document.querySelectorAll('#device-chips .chip').forEach(c => c.classList.remove('selected'));
   el.classList.add('selected');
-  deviceSelected = el.textContent.trim().replace(/^[^\w\u0E00-\u0E7F]+/,'').trim();
+  deviceSelected = el.textContent.trim();
 }
 
-function toggleSymptom(el) {
+function toggleJob(el) {
   el.classList.toggle('selected');
   const text = el.textContent.trim();
   if (el.classList.contains('selected')) {
-    if (!symptomsSelected.includes(text)) symptomsSelected.push(text);
+    if (!jobsSelected.includes(text)) jobsSelected.push(text);
   } else {
-    symptomsSelected = symptomsSelected.filter(s => s !== text);
+    jobsSelected = jobsSelected.filter(s => s !== text);
   }
 }
 
+// ============================================================
+// PHOTO
+// ============================================================
 function triggerCamera() {
   if (photoData) return;
   document.getElementById('gallery-alt').style.display = 'block';
@@ -413,7 +498,7 @@ function handlePhoto(input) {
     const btn = document.getElementById('photo-btn');
     btn.classList.add('has-photo');
     btn.onclick = null;
-    btn.innerHTML = `<img src="${photoData}" alt="รูปอุปกรณ์"><button class="photo-remove" onclick="removePhoto(event)">✕ ลบรูป</button>`;
+    btn.innerHTML = `<img src="${photoData}"><button class="photo-remove" onclick="removePhoto(event)">✕ ลบรูป</button>`;
     document.getElementById('gallery-alt').style.display = 'none';
   };
   reader.readAsDataURL(input.files[0]);
@@ -428,86 +513,168 @@ function removePhoto(e) {
   btn.innerHTML = `<div class="photo-icon">📸</div><div class="photo-title">แตะเพื่อเปิดกล้อง</div><div class="photo-hint">ถ่ายรูปหน้าจอหรืออาการที่เจอ</div>`;
   document.getElementById('inp-camera').value = '';
   document.getElementById('inp-gallery').value = '';
-  document.getElementById('gallery-alt').style.display = 'none';
 }
 
-async function submitForm() {
-  const name = document.getElementById('inp-name').value.trim();
-  const tel = document.getElementById('inp-tel').value.trim();
-  if (!name) { shakeInput('inp-name', 'กรอกชื่อด้วยนะครับ 😅'); return; }
-  if (!tel)  { shakeInput('inp-tel', 'กรอกเบอร์โทรด้วยนะครับ 📞'); return; }
+// ============================================================
+// DELIVERY
+// ============================================================
+function selectDelivery(method) {
+  deliveryMethod = method;
+  document.getElementById('del-self').classList.remove('selected');
+  document.getElementById('del-pickup').classList.remove('selected');
 
+  if (method === 'self') {
+    document.getElementById('del-self').classList.add('selected');
+    document.getElementById('location-box').classList.remove('show');
+    // redirect ไป maps ร้าน
+    setTimeout(() => {
+      if (confirm('เปิด Google Maps แสดงที่อยู่ร้านใช่ไหมครับ?')) {
+        window.open(SHOP_MAPS_URL, '_blank');
+      }
+    }, 300);
+  } else {
+    document.getElementById('del-pickup').classList.add('selected');
+    document.getElementById('location-box').classList.add('show');
+  }
+}
+
+function getLocation() {
+  const status = document.getElementById('loc-status');
+  const preview = document.getElementById('loc-preview');
+  status.textContent = '⏳ กำลังดึงตำแหน่ง...';
+  status.className = 'location-status';
+
+  if (!navigator.geolocation) {
+    status.textContent = '❌ อุปกรณ์นี้ไม่รองรับ GPS';
+    status.className = 'location-status err';
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    pos => {
+      userLat = pos.coords.latitude.toFixed(6);
+      userLng = pos.coords.longitude.toFixed(6);
+      status.textContent = '✅ ได้ตำแหน่งแล้ว';
+      status.className = 'location-status got';
+      preview.innerHTML = `📍 ${userLat}, ${userLng}<br><a href="https://maps.google.com/?q=${userLat},${userLng}" target="_blank" style="color:var(--orange);font-size:12px">ดูบน Google Maps</a>`;
+    },
+    err => {
+      status.textContent = '❌ ไม่สามารถดึงตำแหน่งได้ กรุณาอนุญาตการเข้าถึง GPS';
+      status.className = 'location-status err';
+    },
+    { enableHighAccuracy: true, timeout: 10000 }
+  );
+}
+
+// ============================================================
+// SUBMIT
+// ============================================================
+async function submitForm() {
+  const nameRaw = document.getElementById('inp-name').value.trim();
+  const tel = document.getElementById('inp-tel').value.trim();
+
+  if (!nameRaw) { shakeInput('inp-name', 'กรอกชื่อด้วยนะครับ 😅'); return; }
+  if (!tel || tel.replace(/\D/g,'').length < 9) { shakeInput('inp-tel', 'กรอกเบอร์โทรให้ครบนะครับ 📞'); return; }
+  if (!deliveryMethod) { showToast('เลือกวิธีรับ/ส่งเครื่องด้วยนะครับ 🚗', false); return; }
+  if (deliveryMethod === 'pickup' && !userLat) { showToast('กรุณาแชร์ตำแหน่งก่อนครับ 📍', false); return; }
+
+  // เติม k. นำหน้าชื่อ
+  const name = 'k.' + nameRaw;
   const note = document.getElementById('inp-note').value.trim();
-  const allSymptoms = [...symptomsSelected, note].filter(Boolean).join(' / ');
+
+  // รวม jobs + note เป็น อาการที่แจ้ง
+  const symptomParts = [...jobsSelected, note].filter(Boolean);
+  const symptom = symptomParts.join(' / ');
+
+  // Google Maps link สำหรับตำแหน่งลูกค้า
+  const mapsLink = userLat ? `https://maps.google.com/?q=${userLat},${userLng}` : '';
+
+  // Timestamp
+  const now = new Date();
+  const timestamp = now.toLocaleString('th-TH', {
+    day:'2-digit', month:'2-digit', year:'numeric',
+    hour:'2-digit', minute:'2-digit'
+  });
 
   document.getElementById('loading').classList.add('show');
   document.getElementById('btn-submit').disabled = true;
 
   jobCounter++;
-  localStorage.setItem('otepc_final_counter', jobCounter);
+  localStorage.setItem('otepc_v4_counter', jobCounter);
   const jobNo = 'JOB-' + String(jobCounter).padStart(4,'0');
 
-  const payload = { name, tel, device: deviceSelected, symptoms: allSymptoms, note };
+  const payload = {
+    jobNo, name, tel,
+    device: deviceSelected,
+    jobType: jobsSelected.join(', '),
+    symptom,
+    delivery: deliveryMethod === 'self' ? 'ส่งเครื่องเอง' : 'ให้ร้านไปรับ',
+    lat: userLat || '',
+    lng: userLng || '',
+    mapsLink,
+    timestamp
+  };
 
-  let success = false;
-  let finalJobNo = jobNo;
+  // บันทึก localStorage
+  const jobs = JSON.parse(localStorage.getItem('otepc_v4_jobs') || '[]');
+  jobs.push(payload);
+  localStorage.setItem('otepc_v4_jobs', JSON.stringify(jobs));
 
+  // ส่ง Google Sheets
   try {
-    const res = await fetch(WEBAPP_URL, {
+    await fetch(WEBAPP_URL, {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
-    success = true;
-  } catch(err) {
-    console.log('Error:', err);
-    success = true; // fallback
-  }
-
-  // บันทึก localStorage ด้วยเสมอ
-  const jobs = JSON.parse(localStorage.getItem('otepc_final_jobs') || '[]');
-  const now = new Date();
-  jobs.push({ jobNo, name, tel, device: deviceSelected, symptoms: allSymptoms,
-    date: now.toLocaleDateString('th-TH'), time: now.toLocaleTimeString('th-TH',{hour:'2-digit',minute:'2-digit'}) });
-  localStorage.setItem('otepc_final_jobs', JSON.stringify(jobs));
+  } catch(err) { console.log('Fetch err:', err); }
 
   setTimeout(() => {
     document.getElementById('loading').classList.remove('show');
-    document.getElementById('ticket-no').textContent = finalJobNo;
+    document.getElementById('ticket-no').textContent = jobNo;
     document.getElementById('form-page').style.display = 'none';
+    document.getElementById('page-footer').style.display = 'none';
     document.getElementById('success-page').classList.add('show');
     window.scrollTo(0,0);
   }, 1200);
 }
 
+// ============================================================
 function resetForm() {
-  photoData = ''; deviceSelected = ''; symptomsSelected = [];
+  photoData = ''; deviceSelected = ''; jobsSelected = [];
+  deliveryMethod = ''; userLat = null; userLng = null;
   document.getElementById('inp-name').value = '';
   document.getElementById('inp-tel').value = '';
   document.getElementById('inp-note').value = '';
   document.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
+  document.getElementById('del-self').classList.remove('selected');
+  document.getElementById('del-pickup').classList.remove('selected');
+  document.getElementById('location-box').classList.remove('show');
+  document.getElementById('loc-status').textContent = 'กดปุ่มด้านล่างเพื่อแชร์ตำแหน่งของคุณ';
+  document.getElementById('loc-status').className = 'location-status';
+  document.getElementById('loc-preview').innerHTML = '';
   removePhoto({ stopPropagation: ()=>{} });
   document.getElementById('btn-submit').disabled = false;
   document.getElementById('success-page').classList.remove('show');
   document.getElementById('form-page').style.display = '';
+  document.getElementById('page-footer').style.display = '';
   window.scrollTo(0,0);
 }
 
 function shakeInput(id, msg) {
   const el = document.getElementById(id);
-  el.style.borderColor = '#FF4444';
-  el.style.boxShadow = '0 0 0 4px rgba(255,68,68,0.15)';
+  el.classList.add('error');
   el.focus();
-  showToast(msg);
-  setTimeout(() => { el.style.borderColor=''; el.style.boxShadow=''; }, 2000);
+  showToast(msg, true);
+  setTimeout(() => el.classList.remove('error'), 2500);
 }
 
-function showToast(msg) {
+function showToast(msg, isErr=true) {
   const t = document.getElementById('toast');
   t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2500);
+  t.className = 'toast show' + (isErr ? ' err' : '');
+  setTimeout(() => t.className = 'toast', 2800);
 }
 
 document.addEventListener('dblclick', e => e.preventDefault(), { passive: false });
