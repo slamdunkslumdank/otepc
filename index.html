@@ -444,23 +444,11 @@ async function doSubmit(){
   document.getElementById('loading').classList.add('show');
   document.getElementById('btn-sub').disabled=true;
 
-  // ดึงเลขจาก Sheet ก่อน
-  let jobNo;
-  try {
-    const res = await fetch(WU, {method:'GET', mode:'cors'});
-    const data = await res.json();
-    if(data.success && data.nextJobNo) {
-      jobNo = data.nextJobNo;
-    } else { throw new Error('no jobNo'); }
-  } catch(e) {
-    // fallback local counter
-    cnt++;localStorage.setItem('otepc_cnt',cnt);
-    const y=String(now.getFullYear());
-    const mo=String(now.getMonth()+1).padStart(2,'0');
-    const dy=String(now.getDate()).padStart(2,'0');
-    jobNo='RE'+y+mo+dy+String(cnt).padStart(4,'0');
-  }
-  document.getElementById('tkt-no').textContent=jobNo;
+  cnt++;localStorage.setItem('otepc_cnt',cnt);
+  const y=now.getFullYear();
+  const m=String(now.getMonth()+1).padStart(2,'0');
+  const d=String(now.getDate()).padStart(2,'0');
+  const jobNo='RE'+y+m+d+String(cnt).padStart(4,'0');
 
   const payload={
     jobNo,
@@ -484,10 +472,12 @@ async function doSubmit(){
 
   setTimeout(()=>{
     document.getElementById('loading').classList.remove('show');
+    document.getElementById('tkt-no').textContent=jobNo;
     document.getElementById('form-page').style.display='none';
     document.getElementById('ftr').style.display='none';
     document.getElementById('suc-page').classList.add('show');
     window.scrollTo(0,0);
+    // พาไป maps หลัง success ถ้าเลือกส่งเอง
     if(del==='self') setTimeout(()=>window.open(SHOP_MAP,'_blank'),1500);
   },1200);
 }
