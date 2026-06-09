@@ -315,7 +315,8 @@ input[type=file]{display:none;}
   <div class="success-desc">ช่างได้รับข้อมูลแล้วครับ<br>จะติดต่อกลับเร็วๆ นี้<br><strong style="color:rgba(255,255,255,0.7)">เก็บหมายเลขเคสนี้ไว้นะครับ 👇</strong></div>
   <div class="ticket-box">
     <div class="ticket-label">หมายเลขเคสของคุณ</div>
-    <div class="ticket-no" id="tkt-no">JOB-0000</div>
+    <div class="ticket-no" id="tkt-no">OTEPC-000</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:8px;">📸 แคปหน้าจอเก็บไว้นะครับ</div>
   </div>
   <button class="btn-reset" onclick="doReset()">📋 แจ้งซ่อมเครื่องใหม่</button>
 </div>
@@ -445,10 +446,8 @@ async function doSubmit(){
   document.getElementById('btn-sub').disabled=true;
 
   cnt++;localStorage.setItem('otepc_cnt',cnt);
-  const y=now.getFullYear();
-  const m=String(now.getMonth()+1).padStart(2,'0');
-  const d=String(now.getDate()).padStart(2,'0');
-  const jobNo='RE'+y+m+d+String(cnt).padStart(4,'0');
+  const jobNo='OTEPC-'+String(cnt).padStart(3,'0');
+  document.getElementById('tkt-no').textContent=jobNo;
 
   const payload={
     jobNo,
@@ -472,12 +471,10 @@ async function doSubmit(){
 
   setTimeout(()=>{
     document.getElementById('loading').classList.remove('show');
-    document.getElementById('tkt-no').textContent=jobNo;
     document.getElementById('form-page').style.display='none';
     document.getElementById('ftr').style.display='none';
     document.getElementById('suc-page').classList.add('show');
     window.scrollTo(0,0);
-    // พาไป maps หลัง success ถ้าเลือกส่งเอง
     if(del==='self') setTimeout(()=>window.open(SHOP_MAP,'_blank'),1500);
   },1200);
 }
