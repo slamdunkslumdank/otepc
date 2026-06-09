@@ -439,17 +439,20 @@ async function doSubmit(){
 
   const mapsLink=lat?`https://maps.google.com/?q=${lat},${lng}`:'';
   const now=new Date();
-  const dateTime=now.toLocaleDateString('th-TH')+' '+now.toLocaleTimeString('th-TH',{hour:'2-digit',minute:'2-digit'})+'น.';
+  const dateStr=now.toLocaleDateString('th-TH');
 
   document.getElementById('loading').classList.add('show');
   document.getElementById('btn-sub').disabled=true;
 
   cnt++;localStorage.setItem('otepc_cnt',cnt);
-  const jobNo='JOB-'+String(cnt).padStart(4,'0');
+  const y=now.getFullYear();
+  const m=String(now.getMonth()+1).padStart(2,'0');
+  const d=String(now.getDate()).padStart(2,'0');
+  const jobNo='RE'+y+m+d+String(cnt).padStart(4,'0');
 
   const payload={
     jobNo,
-    dateTime,           // วันที่+เวลารวมกัน
+    date:dateStr,
     name:'k.'+name,
     tel,
     device:dev,
